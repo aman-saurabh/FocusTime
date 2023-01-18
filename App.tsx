@@ -16,6 +16,7 @@ import {
   View,
 } from 'react-native';
 import Focus from './src/features/Focus';
+import Timer from './src/features/Timer';
 import { colors } from './src/utils/colors'
 
 // type SectionProps = PropsWithChildren<{
@@ -36,15 +37,20 @@ import { colors } from './src/utils/colors'
 // }
 
 function App(): JSX.Element {
-  const [currentSubject, setCurrentSubject] = useState(null);
+  const [currentSubject, setCurrentSubject] = useState('Aman');
   return (
     <SafeAreaView style={styles.container}>
       {!currentSubject ? (
         <Focus addSubject={setCurrentSubject} />
       ) : (
-        <View>
-          <Text style={{ color: colors.white }}>I am going to render the timer for {currentSubject}.</Text>
-        </View>
+        // <View>
+        //   <Text style={{ color: colors.white }}>I am going to render the timer for {currentSubject}.</Text>
+        // </View>
+        <Timer
+          focusSubject={currentSubject}
+          onTimerEnd={() => { }}
+          clearSubject={() => { }}
+        />
       )}
     </SafeAreaView>
   );
